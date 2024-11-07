@@ -155,7 +155,7 @@ app.get("/profile", authenticateToken, function (req, res) {
   });
 });
 
-app.post("/sendotp", authenticateToken,function(req, res) {
+app.post("/sendotp",function(req, res) {
   const  data = req.body;
   const phone = data.phone
   const formattedPhone = `+91${phone}`;
@@ -205,7 +205,7 @@ app.post("/sendotp", authenticateToken,function(req, res) {
 });
 
 
-app.post("/verifyotp", authenticateToken,function(req,res){
+app.post("/verifyotp" ,function(req,res){
   const data = req.body;
   const phone = data.phone;
   connection.query("Select * from forgot where phone = ?",[phone],async function(err, result, fields){
@@ -234,7 +234,7 @@ app.post("/verifyotp", authenticateToken,function(req,res){
 })
 })
 
-app.post("/newpassword", authenticateToken,function(req,res){
+app.post("/newpassword" ,function(req,res){
   const data = req.body;
   console.log(data);
   const phone = data.phone;
@@ -262,7 +262,7 @@ app.post("/newpassword", authenticateToken,function(req,res){
 })
 })
 
-app.get("/allproducts", authenticateToken,function(req,res){
+app.get("/allproducts" ,function(req,res){
     connection.query("Select * from product",async function(err, result, fields){
       try {
         console.log("Products");

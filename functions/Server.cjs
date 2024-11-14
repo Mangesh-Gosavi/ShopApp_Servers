@@ -1,7 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const app = express();
-const serverless = require('serverless-http');
+const app = express()
 const cors = require('cors');
 const mysql = require('mysql2');
 const twilio = require('twilio');
@@ -771,5 +770,5 @@ app.listen(process.env.PORT, () => {
     console.log(`Server is running on port ${process.env.PORT}`);
 });
 
-module.exports.handler = serverless(app)
+
 

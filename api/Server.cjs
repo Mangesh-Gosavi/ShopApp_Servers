@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const cors = require('cors');
+const serverless = require('serverless-http');
 const mysql = require('mysql2');
 const twilio = require('twilio');
 const jwt = require('jsonwebtoken');

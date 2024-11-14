@@ -1,15 +1,13 @@
 {
-  "version": 2,
+  "functions": {
+    "api/server.cjs": {
+      "runtime": "nodejs16.x"
+    }
+  },
   "builds": [
     {
-      "src": "api/index.js",
+      "src": "Server.cjs",
       "use": "@vercel/node"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "/api/index.js"
     }
   ]
 }

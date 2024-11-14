@@ -263,17 +263,8 @@ app.post("/newpassword" ,function(req,res){
 })
 
 app.get("/allproducts" ,function(req,res){
-    connection.query("Select * from product",async function(err, result, fields){
-      try {
-        console.log("Products");
-        console.log(result);
-        res.json(result)
+        res.json("REsults are here")
 
-    } catch (error) {
-        console.error("Error fetching data:", error);
-        res.status(500).send("Internal Server Error");
-    }
-  })
 })
 
 app.get("/product/:id", authenticateToken,function(req,res){

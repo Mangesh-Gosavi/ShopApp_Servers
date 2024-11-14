@@ -260,7 +260,7 @@ app.post("/newpassword" ,function(req,res){
 })
 })
 
-app.get("/allproducts",function(req,res){
+app.get("/.netlify/functions/allproducts",function(req,res){
     connection.query("Select * from product",async function(err, result, fields){
       try {
         console.log("Products");

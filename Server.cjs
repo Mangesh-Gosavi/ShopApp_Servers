@@ -1,7 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
-const port = 3000;
 const cors = require('cors');
 const mysql = require('mysql2');
 const twilio = require('twilio');
@@ -205,7 +204,7 @@ app.post("/sendotp",function(req, res) {
 });
 
 
-app.post("/verifyotp" ,function(req,res){
+app.post("/verifyotp",function(req,res){
   const data = req.body;
   const phone = data.phone;
   connection.query("Select * from forgot where phone = ?",[phone],async function(err, result, fields){
@@ -768,4 +767,9 @@ connection.connect(function(err) {
  
 });
 
-module.exports = app; 
+app.listen(process.env.PORT, () => {
+    console.log(`Server is running on port ${process.env.PORT}`);
+});
+
+
+

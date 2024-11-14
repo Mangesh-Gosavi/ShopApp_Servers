@@ -767,7 +767,7 @@ connection.connect(function(err) {
  
 });
 
-module.exports = app
+module.exports.handler = serverless(app);
 
 
 

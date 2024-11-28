@@ -32,8 +32,7 @@ const connection = mysql.createConnection({
   host: process.env.DBHOST,
   user: process.env.DBUSER,
   password: process.env.DBPASSWORD,
-  database: process.env.DATABASE,
-  port:3306
+  database: process.env.DATABASE
 });
 
 // JWT Secret

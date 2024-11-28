@@ -29,11 +29,11 @@ function id(){
 }
 
 const connection = mysql.createConnection({
-  host: process.env.DBHOST,
-  user: process.env.DBUSER,
-  password: process.env.DBPASSWORD,
-  database: process.env.DATABASE,
-  port: 3306
+  host: 'sql306.infinityfree.com',
+  port: 3306,
+  user: 'if0_37804307',
+  password: 'ByvMPDPvd8ly9w',
+  database: 'if0_37804307_shopdb'
 });
 
 // JWT Secret

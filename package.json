@@ -1,7 +1,7 @@
 {
-  "main": "server.js",
+  "main": "Shopserver.cjs",
   "scripts": {
-    "start": "node server.js",
+    "start": "node Shopserver.cjs",
     "build": "true"
   },
   "dependencies": {

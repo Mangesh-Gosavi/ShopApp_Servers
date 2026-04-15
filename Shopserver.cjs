@@ -24,12 +24,9 @@ function id(){
   return randomstring
 }
 
-const connection = mysql.createConnection({
-  host: process.env.DBHOST,
-  user: process.env.DBUSER,
-  password: process.env.DBPASSWORD,
-  database: process.env.DATABASE
-});
+const connection = mysql.createConnection(
+  process.env.MYSQL_PUBLIC_URL
+);
 
 // JWT Secret
 const JWT_SECRET = process.env.JWT_SECRET || "your_jwt_secret";

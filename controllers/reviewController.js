@@ -1,5 +1,7 @@
 const reviewModel = require('../models/reviewModel');
 const { generateId } = require('../utils/helpers');
+const dotenv = require('dotenv');
+dotenv.config();
 
 const getReviews = (req, res) => {
   const productid = req.body.productid;
@@ -25,7 +27,7 @@ const addReview = async (req, res) => {
   const text = data.text;
   const reviewid = generateId();
 
-  const response = await fetch('http://127.0.0.1:5000', {
+  const response = await fetch('process.env.MODELURL', {
     method: "POST",
     headers: { "Content-type": "application/json;" },
     body: JSON.stringify({ text: text }),

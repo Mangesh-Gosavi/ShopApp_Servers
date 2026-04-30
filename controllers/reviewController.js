@@ -27,7 +27,7 @@ const addReview = async (req, res) => {
   const text = data.text;
   const reviewid = generateId();
 
-  const response = await fetch('process.env.MODELURL', {
+  const response = await fetch(`${process.env.MODELURL}/predict`, {
     method: "POST",
     headers: { "Content-type": "application/json;" },
     body: JSON.stringify({ text: text }),
@@ -35,7 +35,7 @@ const addReview = async (req, res) => {
 
   const pred = await response.json();
   console.log(pred);
-  const label = pred.message === "Abusive" ? 1 : 0;
+  const label = pred.prediction === "Abusive" ? 1 : 0;
   console.log(label);
 
   reviewModel.insertReview(email, productid, text, label, reviewid, (err, result) => {

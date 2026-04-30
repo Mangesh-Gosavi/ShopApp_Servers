@@ -44,10 +44,24 @@ const getOrdersByUser = (useremail, callback) => {
   connection.query("SELECT * FROM orderdetails WHERE useremail = ?", [useremail], callback);
 };
 
+const getOrderWithItems = (useremail, orderid, callback) => {
+  const sql =
+    "SELECT od.orderid, od.address, od.totalamount, od.bookeddate, od.status, od.payment, " +
+    "u.name AS username, " +
+    "p.brand, p.product, oi.size, oi.quantity, p.price " +
+    "FROM orderdetails od " +
+    "JOIN orderitem oi ON od.orderid = oi.orderid " +
+    "JOIN product p ON oi.productid = p.productid " +
+    "JOIN users u ON od.useremail = u.email " +
+    "WHERE od.useremail = ? AND od.orderid = ?";
+  connection.query(sql, [useremail, orderid], callback);
+};
+
 module.exports = {
   createOrderItemTable,
   createOrderDetailsTable,
   insertOrderItem,
   insertOrderDetails,
   getOrdersByUser,
+  getOrderWithItems,
 };

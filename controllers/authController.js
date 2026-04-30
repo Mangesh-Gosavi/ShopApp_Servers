@@ -23,7 +23,7 @@ const login = async (req, res) => {
       console.log('data.password, user.password',data.password, user.password)
       const passwordMatch = await bcrypt.compare(data.password, user.password);
       if (passwordMatch) {
-        const token = jwt.sign({ id: user.id, email: user.email }, JWT_SECRET, { expiresIn: "1h" });
+        const token = jwt.sign({ id: user.id, email: user.email }, JWT_SECRET, { expiresIn: "3h" });
         return res.status(200).json({ login: "successful", token });
       } else {
         return res.status(401).json({ success: false, message: "Invalid email or password" });
@@ -49,7 +49,7 @@ const signup = async (req, res) => {
       userModel.insertUser(values, (err) => {
         if (err) throw err;
         console.log("1 record inserted");
-        const token = jwt.sign({ id: details.id, email: details.email }, JWT_SECRET, { expiresIn: "1h" });
+        const token = jwt.sign({ id: details.id, email: details.email }, JWT_SECRET, { expiresIn: "3h" });
         return res.status(200).json({ login: "successful", token });
       });
     } else {
